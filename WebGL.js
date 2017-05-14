@@ -1,10 +1,6 @@
-	//Appending canvases to website and put them in a list.
-ChildAppender("canvas", "GLcontent", 'center', 'center', 1, 0.8);
-var canimation = document.getElementsByClassName("CAcanvas");
 	//Empty lists for multiple WebGL elements
 var wgl = [];
 var nIntervId = [];
-
 
 
 var start = function(n){

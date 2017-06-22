@@ -17,6 +17,7 @@ var Ptaus = [];
 var schlf = {p: 0, q: 1, r: 0};
 
 var shlafli = function(gl, a, p, q) {
+
 	shapeVerticesBuffer[wgl.indexOf(gl)] = [];
 	Ptaus[wgl.indexOf(gl)] = a;
 	p = p.split('/');
@@ -25,6 +26,7 @@ var shlafli = function(gl, a, p, q) {
 	} else {schlf.p = parseInt(p[0], 10)}
 	var vertices = [];
 
+		//Alternation.
 	for (var L = 0; L<a; L++) {
 		if (p[1]) {var check = (0.5*Math.PI)+(((L*(2*Math.PI/schlf.p))/a)/p[1]);
 		} else {var check = (0.5*Math.PI)+((L*(2*Math.PI/schlf.p))/a);}

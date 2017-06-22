@@ -2,23 +2,26 @@
 var wgl = [];
 var nIntervId = [];
 
+	//This function is called when the user hits enter in the input field.
 
 var start = function(n){
 		//Stop drawing previous shape.
 	clearInterval(nIntervId[n]);
 	wgl[n] = null;
-		//Base settings for webGL
+		//Base settings for webGL canvas.
 	wgl[n] = canimation[n].getContext("experimental-webgl");
 	wgl[n].clearColor(0.0, 0.0, 0.0, 1.0);
 	wgl[n].clearDepth(1.0);
 	wgl[n].enable(wgl[n].DEPTH_TEST);
 	wgl[n].depthFunc(wgl[n].LEQUAL);
 
+		//Load shaders.
 	initShaders(wgl[n]);
 
+		//Load buffer.
 	initBuffer(wgl[n]);
 
-		//Start drawing new shape.
+		//Start drawing shape.
 	nIntervId[n] = setInterval(function(){ drawScene(wgl[n], canimation[n].width, canimation[n].height) }, 15);
 }
 
@@ -39,30 +42,17 @@ function drawScene(gl, width, height) {
 	mvPushMatrix();
 	mvRotate(matrixRotation, [1, 0, 0]);
 
-	if (pqr != "") {
-		for (var s = 0; s<Ptaus[wgl.indexOf(gl)]; s++) {
-				//The shape
-			gl.bindBuffer(gl.ARRAY_BUFFER, shapeVerticesBuffer[wgl.indexOf(gl)][s]);
-			gl.vertexAttribPointer(vertexPositionAttribute[wgl.indexOf(gl)], 3, gl.FLOAT, false, 0, 0);
-				//The color
-			gl.bindBuffer(gl.ARRAY_BUFFER, shapeVerticesColorBuffer[wgl.indexOf(gl)]);
-			gl.vertexAttribPointer(vertexColorAttribute[wgl.indexOf(gl)], 4, gl.FLOAT, false, 0, 0);
 
-			setMatrixUniforms(gl);
-			gl.drawArrays(gl.LINE_LOOP, 0, iterations[wgl.indexOf(gl)]/Ptaus[wgl.indexOf(gl)]);
-		}
-	} else {
+	for (var s = 0; s<Ptaus[wgl.indexOf(gl)]; s++) {
 			//The shape
-		gl.bindBuffer(gl.ARRAY_BUFFER, cubeVerticesBuffer);
+		gl.bindBuffer(gl.ARRAY_BUFFER, shapeVerticesBuffer[wgl.indexOf(gl)][s]);
 		gl.vertexAttribPointer(vertexPositionAttribute[wgl.indexOf(gl)], 3, gl.FLOAT, false, 0, 0);
 			//The color
-		gl.bindBuffer(gl.ARRAY_BUFFER, cubeVerticesColorBuffer);
+		gl.bindBuffer(gl.ARRAY_BUFFER, shapeVerticesColorBuffer[wgl.indexOf(gl)]);
 		gl.vertexAttribPointer(vertexColorAttribute[wgl.indexOf(gl)], 4, gl.FLOAT, false, 0, 0);
 
-		gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, cubeVerticesIndexBuffer);
 		setMatrixUniforms(gl);
-		//gl.drawArrays(gl.LINE_LOOP, 0, 24);
-		gl.drawElements(gl.TRIANGLES, 36, gl.UNSINGNED_SHORT, 0);
+		gl.drawArrays(gl.LINE_LOOP, 0, iterations[wgl.indexOf(gl)]/Ptaus[wgl.indexOf(gl)]);
 	}
 
 

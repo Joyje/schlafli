@@ -13,12 +13,12 @@ for (var i = 0; i<canimation.length; i++){
 	//Shläfli math and variables
 var pqr;
 var Pedges;
-var Ptaus;
+var Ptaus = [];
 var schlf = {p: 0, q: 1, r: 0};
 
 var shlafli = function(gl, a, p, q) {
 	shapeVerticesBuffer[wgl.indexOf(gl)] = [];
-	Ptaus = a;
+	Ptaus[wgl.indexOf(gl)] = a;
 	p = p.split('/');
 	if (p.length > 1) {
 		schlf.p = parseInt(p[0], 10)/parseInt(p[1], 10);

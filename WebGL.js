@@ -40,7 +40,7 @@ function drawScene(gl, width, height) {
 	mvRotate(matrixRotation, [1, 0, 0]);
 
 	if (pqr != "") {
-		for (var s = 0; s<Ptaus; s++) {
+		for (var s = 0; s<Ptaus[wgl.indexOf(gl)]; s++) {
 				//The shape
 			gl.bindBuffer(gl.ARRAY_BUFFER, shapeVerticesBuffer[wgl.indexOf(gl)][s]);
 			gl.vertexAttribPointer(vertexPositionAttribute[wgl.indexOf(gl)], 3, gl.FLOAT, false, 0, 0);
@@ -49,7 +49,7 @@ function drawScene(gl, width, height) {
 			gl.vertexAttribPointer(vertexColorAttribute[wgl.indexOf(gl)], 4, gl.FLOAT, false, 0, 0);
 
 			setMatrixUniforms(gl);
-			gl.drawArrays(gl.LINE_LOOP, 0, iterations[wgl.indexOf(gl)]/Ptaus);
+			gl.drawArrays(gl.LINE_LOOP, 0, iterations[wgl.indexOf(gl)]/Ptaus[wgl.indexOf(gl)]);
 		}
 	} else {
 			//The shape

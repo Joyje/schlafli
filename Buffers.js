@@ -1,7 +1,7 @@
 var iterations = [];
 var shapeVerticesBuffer = [];
 var shapeVerticesColorBuffer = [];
-var cubeVerticesIndexBuffer;
+
 var initBuffer = function(gl){
 
 	iterations[wgl.indexOf(gl)] = 0;

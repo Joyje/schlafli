@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<title>WebGL</title>
+		<link rel="stylesheet" href="showcase.css">
 		<script src="ChildAppender.js"></script>
 		<script src="sylvester.js"></script>
 		<script src="glUtils.js"></script>
@@ -36,8 +37,12 @@
 	</head>
 
 	<body>
-		<div style="width:100vw; height:50vh;" class="GLcontent"></div>
-		<div style="width:100vw; height:50vh;" class="GLcontent"></div>
+		<div class="showcase">
+			<aside class="showcaseMenu GLmenu">
+				<div class="showcaseMenuEntry GLinput"></div>
+			</aside>
+			<div class="showcaseContent GLcontent"></div>
+		</div>
 	</body>
 
 	<!--My WebGL scripts-->

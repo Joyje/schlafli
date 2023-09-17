@@ -1,20 +1,19 @@
-function ChildAppender (childElement, containerClass, childYPos, childXPos, childWidth, childHeight) {
+function ChildAppender (childElement, containerClass, childWidth, childHeight, childXPos, childYPos) {
 		//Placing the containers new children in the right places.
 	var containers = document.getElementsByClassName(containerClass);
 	for (var i = 0; i < containers.length; i++) {
-		//console.log(window.getComputedStyle(containers[i], null).getPropertyValue("position"))
-		containers[i].style.position = "relative";
 		var containerChild = document.createElement(childElement);
 		containerChild.className = "CA"+childElement;
 		containerChild.id = containerChild.className+i;
 
-			//Make this change to css file instead in future versions for efficiency
-		containerChild.style.position = 'absolute';
 
-		if (childWidth && childHeight) {
+		if (childWidth) {
 			containerChild.width = containers[i].offsetWidth*childWidth;
+		} else {containerChild.width = containers[i].offsetWidth;}
+
+		if (childHeight) {
 			containerChild.height = containers[i].offsetHeight*childHeight;
-		}
+		} else {containerChild.height = containers[i].offsetHeight;}
 
 		if (childYPos == 'bottom') {
 			containerChild.style.top = (containers[i].offsetHeight)-(containerChild.height)+"px";

@@ -1,9 +1,9 @@
 	//Appending canvases to website and put them in a list.
-ChildAppender("canvas", "GLcontent", 'center', 'center', 1, 0.8);
+ChildAppender("canvas", "GLcontent");
 var canimation = document.getElementsByClassName("CAcanvas");
-	//Appending form to input shläfli symbol
-ChildAppender("form", "GLcontent");
-ChildAppender("input", "CAform", 'top', 'left');
+	//Appending form to input Schläfli symbol
+ChildAppender("form", "GLinput");
+ChildAppender("input", "CAform");
 
 	//List with all newly created canvases to iterate through.
 for (var i = 0; i<canimation.length; i++){

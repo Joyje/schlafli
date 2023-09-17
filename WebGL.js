@@ -5,6 +5,14 @@ var nIntervId = [];
 	//This function is called when the user hits enter in the input field.
 
 var start = function(n){
+		//Add history of previously submitted values
+	let inputEntry = document.getElementById("CAform"+n).parentElement;
+	let newEntry = document.createElement("div");
+	let inputElement = document.getElementById("CAinput"+n);
+	newEntry.classList.add("showcaseMenuEntry");
+	newEntry.innerHTML = inputElement.value;
+	newEntry.addEventListener("click", function(){inputElement.value = newEntry.innerHTML; start(n);}, false);
+	inputEntry.insertAdjacentElement("afterend", newEntry);
 		//Stop drawing previous shape.
 	clearInterval(nIntervId[n]);
 	wgl[n] = null;

@@ -2,7 +2,7 @@
 This project is an easy to implement, easy to modify, WebGL illustrator for your webpage.
 You can generate geometric shapes represented by Schläfli symbols or just view any 3D model you want. The goal is to add features such as 3D print (through .amf format) and export 3D object to file (.prc for easy integration into pdf) etc.
 
-If you want to try it, download zip, extract, and run the html file in any browser, input any 2 dimensional schläfli symbol and hit enter. It currently only supports polygons(2D shapes). The geometric shape will appear in a WebGL canvas below the input field.
+If you want to try it out, you can follow this link: https://joyje.github.io/#ms3 or download the zip, extract, and run the html file in any browser, input any 2 dimensional schläfli symbol and hit enter. It currently only supports polygons(2D shapes). The geometric shape will appear in a WebGL canvas next to the input field.
 
 Why Schläfli?
 
